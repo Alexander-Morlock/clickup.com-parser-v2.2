@@ -1,0 +1,296 @@
+// VARIABLES
+
+$accent-color: #0075ff;
+$accent-active-color: #0064d6;
+$background-color: #fff;
+$grey: #f0f0f0;
+$tag-button-border-color: #767676;
+
+// GLOBALS
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h3 {
+  margin: 0;
+}
+
+form button {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+p {
+  margin: 0.3rem 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+// LEFT PANEL - NAVIGATION
+
+.left-panel {
+  width: 19rem;
+  padding-right: 1rem;
+  border-right: 1px solid $grey;
+  margin-right: 1.5rem;
+}
+
+.teams-list {
+  label {
+    cursor: pointer;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+}
+
+.team-members {
+  font-size: 0.8rem;
+}
+
+.members-list {
+  li {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 0.3rem;
+
+    &::before {
+      content: attr(data-currency);
+      position: absolute;
+      left: 0.2rem;
+      top: -0.1rem;
+    }
+  }
+
+  .member-rate-input {
+    width: 2rem;
+    padding-left: 0.7rem;
+    border-radius: 0.3rem;
+    border: 1px solid #777;
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+.progress-bar {
+  background-color: #c5e0ff;
+  width: 19rem;
+
+  div {
+    height: 3px;
+    background-color: $accent-color;
+    transition: width 0.5s;
+  }
+}
+
+.datepickers-wrapper {
+  position: relative;
+  z-index: 1;
+  margin: 1.2rem 0;
+  padding: 0.1rem 1rem 2.2rem 3.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: 0 0 1.6rem -0.1rem rgba(0, 0, 0, 0.4);
+  transform: translateX(-1rem);
+  width: 15rem;
+}
+
+.datepickers {
+  position: relative;
+
+  &>div {
+    margin-right: 1rem;
+    width: 5rem;
+    position: absolute;
+
+    &:not(:first-child) {
+      left: 6.5rem;
+    }
+
+    input {
+      width: 100%;
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+  }
+}
+
+button,
+.download-button {
+  margin-right: 0.9rem;
+  width: 5.6rem;
+  cursor: pointer;
+  background-color: rgb(203, 203, 203);
+  background: linear-gradient(183deg, rgba(203, 203, 203, 1) 0%, rgba(218, 220, 222, 1) 100%);
+  border: none;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  color: #000;
+
+  &:hover {
+    background: $accent-color;
+    color: $background-color;
+  }
+
+  &:active {
+    background: $accent-active-color;
+  }
+}
+
+.download-button {
+  display: block;
+  width: auto;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  width: 7rem;
+  text-align: center;
+}
+
+.date-buttons-wrapper {
+  margin-top: 3.3rem;
+}
+
+.timing-wrapper {
+  display: flex;
+}
+
+.tags-buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  margin-left: -0.2rem;
+  border-bottom: 1px solid $grey;
+  padding-bottom: 1rem;
+
+  li {
+    padding: 0.2rem;
+    border: 1px solid $tag-button-border-color;
+    border-radius: 0.5rem;
+    margin: 0.2rem;
+    color: $tag-button-border-color;
+
+    label,
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+
+  }
+
+  input:checked+label {
+    color: $accent-color;
+    font-weight: 700;
+  }
+
+  .tag-option {
+    display: inline-block;
+    margin: 3px 3px 3px 5px;
+    padding: 1px;
+    border-radius: 5px;
+    background-color: #cbcbcb;
+  }
+}
+
+// RIGHT PANEL - TABLES
+
+table {
+  border-collapse: collapse;
+
+  td {
+    position: relative;
+    padding: 0.5rem;
+    border-top: 1px solid $grey;
+    text-align: center;
+    min-width: 4rem;
+    white-space: nowrap;
+
+    &:not(:first-child) {
+      border-left: 1px solid $grey;
+    }
+
+    &.vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      border: none;
+      vertical-align: middle;
+    }
+
+    &.table-header {
+      background-color: $grey;
+    }
+  }
+}
+
+.table-member-header {
+  font-size: 1.5rem;
+  text-align: left;
+  border-top: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.tasks {
+  text-align: left;
+  font-size: 0.7rem;
+  border-top: none;
+  border-bottom: 1px solid $grey;
+
+  i {
+    display: block;
+    max-height: 1rem;
+    overflow-y: auto;
+    white-space: normal;
+  }
+}
+
+.total-cell {
+  font-weight: 700;
+  background-color: $grey;
+  cursor: default;
+}
+
+.total-money {
+  background-color: #e5e5e5;
+  font-weight: 700;
+}
+
+.editable-cell {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
+  background-color: #fff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    font-size: 0.9rem;
+    width: 1rem;
+    margin: 0 0.2rem;
+    cursor: pointer;
+  }
+}
+
+td:hover {
+  .editable-cell {
+    display: flex;
+  }
+}
